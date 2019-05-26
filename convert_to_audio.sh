@@ -1,3 +1,5 @@
+AUDIO_DIR="/Users/joshstein/Documents/UCT/Engineering/4th_year/Design/Videos/"
+
 function convert_to_wav {
         for i in *.mp4; do
                 ffmpeg -loglevel fatal -i "$i" "${i%.*}.wav";
@@ -14,5 +16,6 @@ function split_into_pieces {
         find . -type f -name '*[^0-9].wav' -delete # delete original files
 }
 
+cd $AUDIO_DIR
 convert_to_wav
 split_into_pieces
